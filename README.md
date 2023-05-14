@@ -17,9 +17,13 @@
 ## Из Скрипта
 У Helm теперь есть скрипт установки, которая будет автоматически загружать последнюю версию Helm и устанавливать его локально.
 Вы можете получить этот сценарий, а затем выполнить его локально. Он хорошо документирован, так что вы можете прочитать его и понять, что он делает, прежде чем запускать.
+
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+
 $ chmod 700 get_helm.sh
+
 $ ./get_helm.sh
+
 Да, можно закрутить curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash , если вы хотите острых ощущений.
 
 ## Через Менеджеров Пакетов
@@ -27,26 +31,37 @@ $ ./get_helm.sh
 
 ## Используя Homebrew (macOS)
 Члены сообщества Helm внесли свой вклад в создание formula Helm для Homebrew. Эта formula, почти всегда, актуальна.
+
 brew install helm
+
 ### (Примечание: Существует также formula для emacs-helm, являющаяся другим проектом.)
 
 ## Используя Chocolatey (Windows)
 Члены сообщества Helm внесли свой вклад в Helm пакет собранный под Chocolatey. Данная сборка почти всегда актуальна
+
 choco install kubernetes-helm
 
 ## Используя Apt (Debian/Ubuntu)
 Члены сообщества Helm внесли свой вклад в Helm package для Apt. Данная сборка почти всегда актуальна
+
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+
 sudo apt-get install apt-transport-https --yes
+
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
 sudo apt-get update
+
 sudo apt-get install helm
 
 ## Используя Snap
 Snapcrafters сообщество поддерживает Snap-версию Helm пакета:
+
 sudo snap install helm --classic
+
 ### Используя pkg (FreeBSD)
 Члены сообщества FreeBSD внесли свой вклад в создание Helm пакета под FreeBSD Ports Collection. Данная сборка почти всегда актуальна
+
 pkg install helm
 
 ## Тестовые Сборки
@@ -62,9 +77,13 @@ Canary Helm binaries сборки хранятся в get.helm.sh. Вот нес
 ## Из Исходного Кода (Linux, macOS)
 Создание Helm из исходного кода-это немного больше работы, но это лучший способ пойти, если вы хотите протестировать последнюю версию (pre-release) Helm.
 У вас должна быть рабочая среда Go.
+
 $ git clone https://github.com/helm/helm.git
+
 $ cd helm
+
 $ make
+
 При необходимости скрипт извлекает зависимости, кэширует их и проверяет конфигурацию. Затем он скомпилирует helm и поместит его в bin/helm.
 
 ## Заключение
